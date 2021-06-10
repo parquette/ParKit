@@ -9,11 +9,12 @@ let package = Package(
             targets: ["ParKit"]),
     ],
     dependencies: [
+        .package(url: "https://github.com/parquette/ParCore.git", .branch("main")),
     ],
     targets: [
         .target(
             name: "ParKit",
-            dependencies: []),
+            dependencies: ["ParCore"]),
         .testTarget(
             name: "ParKitTests",
             dependencies: ["ParKit"]),
