@@ -20,8 +20,7 @@ jobs:
       - run: swift test --enable-test-discovery
 
   watchOS:
-    if: false # disabled until we can work around missing XCTest in non-xcodeproj SPM module
-    runs-on: macos-latest
+    runs-on: macos-11
     needs: [Linux] # Linux must pass first
 
     steps:
@@ -38,7 +37,7 @@ jobs:
 
   iOS:
     runs-on: macos-latest
-    needs: [Linux] # watchOS must pass first
+    needs: [watchOS] # watchOS must pass first
 
     steps:
       - uses: actions/checkout@v2
@@ -73,8 +72,7 @@ jobs:
         run: swift test
 
   macOS11:
-    if: false # macos-11.0 not yet public
-    runs-on: macos-11.0
+    runs-on: macos-11
     needs: [macOS10] # macOS10 must pass first
     steps:
       - uses: actions/checkout@v2
