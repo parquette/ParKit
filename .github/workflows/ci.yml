@@ -39,7 +39,7 @@ jobs:
               ONLY_ACTIVE_ARCH=YES CODE_SIGNING_REQUIRED=NO
 
   iOS:
-    runs-on: macos-latest
+    runs-on: macos-11
     needs: [watchOS] # watchOS must pass first
     env:
       DEVELOPER_DIR: /Applications/Xcode_12.5.app/Contents/Developer
@@ -56,7 +56,7 @@ jobs:
               ONLY_ACTIVE_ARCH=YES CODE_SIGNING_REQUIRED=NO
 
   tvOS:
-    runs-on: macos-latest
+    runs-on: macos-11
     needs: [iOS] # iOS must pass first
     env:
       DEVELOPER_DIR: /Applications/Xcode_12.5.app/Contents/Developer
